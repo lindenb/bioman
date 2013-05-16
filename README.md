@@ -11,8 +11,11 @@ Pierre Lindenbaum PhD
 http://plindenbaum.blogspot.com
 @yokofakun	
 
+Adding Bioman to the ```man``` path:
 
-
+```bash
+export MANPATH=${MANPATH}:/path/to/bioman/man
+```
 
 About Bioman
 ------------

@@ -1,0 +1,83 @@
+.TH efetch 7 2013-05-16 "NCBI EFetch"
+.\"
+.SH NAME
+EFetch
+.\"
+
+.SH Description
+Returns formatted data records for a list of input UIDs.
+Returns formatted data records for a set of UIDs stored on the Entrez History server.
+
+
+.SS Base URL
+
+http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi
+
+.SS  Required Parameters
+
+.TP 5
+db
+Database from which to retrieve records. The value must be a valid Entrez database name (default = pubmed). Currently EFetch does not support all Entrez databases. 
+
+
+.SS Required Parameter – Used only when input is from a UID list
+
+.TP 5
+id
+UID list. Either a single UID or a comma-delimited list of UIDs may be provided. All of the UIDs must be from the database specified by db. There is no set maximum for the number of UIDs that can be passed to EFetch, but if more than about 200 UIDs are to be provided, the request should be made using the HTTP POST method.
+
+efetch.fcgi?db=protein&id=15718680,157427902,119703751
+
+.SS   Required Parameters. Used only when input is from the Entrez History server
+
+.TP 5
+query_key
+This integer specifies which of the UID lists attached to the given Web Environment will be used as input to EFetch. Query keys are obtained from the output of previous ESearch, EPost or ELInk calls. The query_key parameter must be used in conjunction with WebEnv.
+
+.TP 5 WebEnv Web Environment. This parameter specifies the Web Environment that contains the UID list to be provided as input to EFetch. Usually this WebEnv value is obtained from the output of a previous ESearch, EPost or ELink call. The WebEnv parameter must be used in conjunction with query_key.
+
+efetch.fcgi?db=protein&query_key=<key>&WebEnv=<webenv string>
+
+.SS Optional Parameters
+
+.TP 5
+retmode
+This parameter specifies the data format of the records returned, such as plain text, HMTL or XML. See Table 1 for a full list of allowed values for each database.
+
+.TP 5
+rettype
+This parameter specifies the record view returned, such as Abstract or MEDLINE from PubMed, or GenPept or FASTA from protein. Please see Table 1 for a full list of allowed values for each database.
+
+.TP 5
+retstart
+Sequential index of the first record to be retrieved (default=0, corresponding to the first record of the entire set). This parameter can be used in conjunction with retmax to download an arbitrary subset of records from the input set.
+
+.TP 5
+retmax
+Total number of records from the input set to be retrieved, up to a maximum of 10,000. Optionally, for a large set the value of retstart can be iterated while holding retmax constant, thereby downloading the entire set in batches of size retmax.
+
+
+.SS Optional Parameters – Sequence Databases
+
+.TP 5
+strand
+Strand of DNA to retrieve. Available values are "1" for the plus strand and "2" for the minus strand.
+
+.TP 5
+seq_start
+First sequence base to retrieve. The value should be the integer coordinate of the first desired base, with "1" representing the first base of the seqence.
+
+.TP 5
+
+seq_stop
+Last sequence base to retrieve. The value should be the integer coordinate of the last desired base, with "1" representing the first base of the seqence.
+complexity
+
+Data content to return. Many sequence records are part of a larger data structure or "blob", and the complexity parameter determines how much of that blob to return.
+
+
+.SH SEE ALSO
+
+
+
+
