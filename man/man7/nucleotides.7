@@ -4,30 +4,38 @@
 Nucleotides
 .\"
 
-.SH Description
-
+.SH Basic notation
 
 .TS
 l l l.
-Symbol	Meaning	Complement
+Symbol	Description	Complement
 _
 A	Adenine	T
 C	Cytosine	G
 G	Guanine	C
 T	Thymine	A
-_
 U	Uracil	A
-B	G or T or C	V
-D	G or T or A	H
-H	A or C or T	D
-K	G or T	M
-M	A or C	K
-N	G or A or T or C	N
-R	Purine (A or G)	Y
-S	G or C	S
-V	G or C or A	B
-W	A or T	W
-Y	Pyrimidine (C or T)	R
+.TE
+.\"
+
+
+.SH Ambiguous/degenerate notation
+
+.TS
+l l l.
+Symbol	Description	Bases represented
+_
+B	not A (B comes after A)	C or G or T
+D	not C (D comes after C)	A or G or T
+H	not G (H comes after G)	A or C or T
+K	keto	G or T
+M	amino	A or C
+N	any base	A or C or G or T
+R	purine	A or G
+S	strong	C or G
+V	not T (V comes after T and U)	A or C or G
+W	weak	A or T
+Y	pyrimidine	C or T
 .TE
 .\"
 
