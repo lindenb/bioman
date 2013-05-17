@@ -8,26 +8,26 @@ Nucleotides
 
 
 .TS
-l l l.
-Symbol	Meaning	Complement
+l l l l.
+Symbol	Description	Bases represented	Complement
 _
-A	Adenine	T
-C	Cytosine	G
-G	Guanine	C
-T	Thymine	A
+A	Adenine	A	T
+C	Cytosine	C	G
+G	Guanine	G	C
+T	Thymine	T	A
+U	Uracil	U	A
 _
-U	Uracil	A
-B	G or T or C	V
-D	G or T or A	H
-H	A or C or T	D
-K	G or T	M
-M	A or C	K
-N	G or A or T or C	N
-R	Purine (A or G)	Y
-S	G or C	S
-V	G or C or A	B
-W	A or T	W
-Y	Pyrimidine (C or T)	R
+B	not A (B comes after A)	C or G or T	V
+D	not C (D comes after C)	A or G or T	H
+H	not H (H comes after G)	A or C or T	D
+K	keto	G or T	M
+M	amino	A or C	K
+N	any base	A or C or G or T	N
+R	purine	A or G	Y
+S	strong	C or G	S
+V	not T (V comes after T and U)	A or C or G	B
+W	weak	A or T	W
+Y	pyrimidine	C or T	R
 .TE
 .\"
 
@@ -35,6 +35,4 @@ Y	Pyrimidine (C or T)	R
 .SH SEE ALSO
 .BR geneticcode (7)
 .BR aminoacids (7)
-
-
 
